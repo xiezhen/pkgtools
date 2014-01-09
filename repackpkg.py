@@ -55,9 +55,10 @@ if __name__=='__main__':
         fulldirtree=cmsprefix+dirtree
         sourcedir=os.path.join(*fulldirtree)
         save_as='-'.join(dirtree[-2:])
-        repackparams.append( (sourcedir,save_as) )
         if not os.path.exists(sourcedir):
             extractparams.append( (cmsarch,rpmname) )
+        if not os.path.exists(save_as+'.tar.gz'):
+            repackparams.append( (sourcedir,save_as) )
     print extractparams
     print repackparams
     pool = mp.Pool(processes=4)
