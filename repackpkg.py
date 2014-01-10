@@ -3,6 +3,7 @@ import multiprocessing as mp
 
 logfile='/dev/null'
 preserveddir=['bin','lib','include','python']
+excludedir=['doc','tests','external','build','tutorials','.SCRAM','SCRAM','config']
 
 def extractrpm( (cmsarch,rpmname) ):
     with open(logfile,'w') as mylog:
@@ -33,9 +34,12 @@ def repack( (source_dir,save_as) ):
  
     '''
     with tarfile.open(save_as+'.tar.gz','w:gz') as tar:
-        for saveddir in preserveddir:
-            if not os.path.exists( os.path.join(source_dir,saveddir) ): continue
-            tar.add(os.path.join(source_dir,saveddir), arcname=os.path.join(save_as,saveddir),recursive=True) 
+        for root,subdirs,files in os.walk(source_dir,followlinks=False):
+            subdirs[:] = [d for d in subdirs if d not in excludedir]
+            for dirname in subdirs:
+                if dirname in preserveddir:
+                    saveddir=os.path.join(root,dirname)
+                    tar.add(os.path.join(root,dirname), arcname=os.path.join(save_as,dirname),recursive=True) 
             
 if __name__=='__main__':
 
@@ -57,6 +61,7 @@ if __name__=='__main__':
         save_as='-'.join(dirtree[-2:])
         if not os.path.exists(sourcedir):
             extractparams.append( (cmsarch,rpmname) )
+        print save_as+'.tar.gz'
         if not os.path.exists(save_as+'.tar.gz'):
             repackparams.append( (sourcedir,save_as) )
     print extractparams
