@@ -19,8 +19,9 @@ if __name__=='__main__':
               'external+frontier_client+2.8.8-cms-1-1',
               'cms+coral+CORAL_2_3_21-cms32-1-1',
               'external+oracle+11.2.0.3.0__10.2.0.4.0-cms-1-1',
-              'external+boost+1.51.0-cms5-1-1',
-              'external+xerces-c+2.8.0-cms-1-1'
+              'external+boost+1.47.0-1-1',
+              'external+xerces-c+2.8.0-cms-1-1',
+              'external+gcc+4.7.2-cms-1-1'
               ]
     rpms=os.path.join(cmsarch,'.rpm')
     links=[]

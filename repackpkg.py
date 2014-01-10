@@ -2,8 +2,8 @@ import os,sys,re,urllib,tarfile,subprocess
 import multiprocessing as mp
 
 logfile='/dev/null'
-preserveddir=['bin','lib','include','python']
-excludedir=['doc','tests','external','build','tutorials','.SCRAM','SCRAM','config']
+preserveddir=['bin','lib','lib64','include','python']
+excludedir=['etc','doc','tests','external','build','tutorials','.SCRAM','SCRAM','config']
 
 def extractrpm( (cmsarch,rpmname) ):
     with open(logfile,'w') as mylog:
