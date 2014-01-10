@@ -21,7 +21,8 @@ if __name__=='__main__':
               'external+oracle+11.2.0.3.0__10.2.0.4.0-cms-1-1',
               'external+boost+1.47.0-1-1',
               'external+xerces-c+2.8.0-cms-1-1',
-              'external+gcc+4.7.2-cms-1-1'
+              'external+gcc+4.7.2-cms-1-1',
+              'external+xz+5.0.3-cms-1-1'
               ]
     rpms=os.path.join(cmsarch,'.rpm')
     links=[]

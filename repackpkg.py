@@ -3,7 +3,7 @@ import multiprocessing as mp
 
 logfile='/dev/null'
 preserveddir=['bin','lib','lib64','include','python']
-excludedir=['etc','doc','tests','external','build','tutorials','.SCRAM','SCRAM','config']
+excludedir=['etc','doc','tests','test','external','build','tutorials','.SCRAM','SCRAM','config']
 
 def extractrpm( (cmsarch,rpmname) ):
     with open(logfile,'w') as mylog:
