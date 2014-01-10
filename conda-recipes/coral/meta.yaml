@@ -10,7 +10,9 @@ requirements:
   run: 
     - libstdcplus
     - boost
-
+    - xerces-c
+    - frontier_client
+    - oracle
 
 
 
