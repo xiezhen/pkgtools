@@ -6,6 +6,11 @@ source:
   fn: coral-CORAL_2_3_21-cms32.tar.gz
   url: file:///home/zhen/cmsrepo/coral-CORAL_2_3_21-cms32.tar.gz
 
+requirements: 
+  run: 
+    - libstdcplus
+    - boost
+
 
 
 

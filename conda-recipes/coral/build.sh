@@ -1,5 +1,6 @@
 #!/bin/bash
 mkdir -p $PREFIX/lib
+mkdir -p $PREFIX/lib/python$PY_VER
 cp $SRC_DIR/lib/liblcg_ConnectionService.so $PREFIX/lib
 cp $SRC_DIR/lib/liblcg_CoralBase.so $PREFIX/lib
 cp $SRC_DIR/lib/liblcg_CoralCommon.so $PREFIX/lib
@@ -12,7 +13,6 @@ cp $SRC_DIR/lib/liblcg_RelationalService.so $PREFIX/lib
 cp $SRC_DIR/lib/liblcg_SQLiteAccess.so $PREFIX/lib
 cp $SRC_DIR/lib/liblcg_XMLAuthenticationService.so $PREFIX/lib
 
-mkdir -p $PREFIX/lib/python$PY_VER
 cp $SRC_DIR/lib/liblcg_PyCoral.so $PREFIX/lib/python$PY_VER
 cp $SRC_DIR/python/coral.py $PREFIX/lib/python$PY_VER
 
