@@ -7,7 +7,9 @@ source:
   url: file:///home/zhen/cmsrepo/frontier_client-2.8.8-cms.tar.gz
 
   
-
+requirements:
+  run: 
+    - expat
 
 
 
