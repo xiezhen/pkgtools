@@ -1,6 +1,6 @@
 #!/bin/bash
 echo ""
-echo "Lumiconda Installer. Customized Miniconda"
+echo "Customized Miniconda Installer for Luminosity"
 echo ""
 
 #export TMPDIR=`mktemp -d /tmp/selfextract.XXXXXX`
@@ -103,7 +103,7 @@ done
 
 mkdir $PREFIX/envs
 
-PYTHON="$PREFIX/pkgs/python-2.7.6-1/bin/python -E"
+PYTHON="$PREFIX/pkgs/__pythonpkg__/bin/python -E"
 $PYTHON -V
 if (( $? )); then
     echo "ERROR:
@@ -113,8 +113,9 @@ cannot execute native linux-64 binary, output from 'uname -a' is:" >&2
 fi
 
 echo "creating default lumi environment..."
-CONDA_INSTALL="$PREFIX/pkgs/conda-3.0.0-py27_0/lib/python2.7/site-packages/conda/install.py"
+CONDA_INSTALL="$PREFIX/pkgs/__condapkg__/lib/python2.7/site-packages/conda/install.py"
 $PYTHON $CONDA_INSTALL --prefix=$PREFIX --pkgs-dir=$PREFIX/pkgs --link-all || exit 1
+/bin/rm -rf $PREFIX/pkgs
 echo "installation finished."
 
 if [[ $PYTHONPATH != "" ]]; then
@@ -125,7 +126,10 @@ if [[ $PYTHONPATH != "" ]]; then
     directories of packages that are compatible with the Python interpreter
     in Miniconda: $PREFIX"
 fi
-
+echo "###turn on environment, run:"
+echo "source $PREFIX/bin/activate $PREFIX"
+echo "###turn off environment, run:"
+echo "source deactivate"
 exit 0
 
 __ARCHIVE_BELOW__
