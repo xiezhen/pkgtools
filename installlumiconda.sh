@@ -6,8 +6,7 @@ if [ -n "$1" ]; then
 fi
 cd ${WORKDIR}
 
-LUMICONDA_ROOT="${WORKDIR}/lumiconda"
-source ${LUMICONDA_ROOT}/bin/activate ${LUMICONDA_ROOT}
+LUMICONDA_ROOT="${WORKDIR}/anaconda"
 
 INSTALL_FLAGS="--yes --quiet"
 LUMICONDA_VERSION="0.0.1"
