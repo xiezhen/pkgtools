@@ -20,5 +20,5 @@ do
     conda build $pkgname
 done
 conda list
-conda clean -t
+conda clean --yes -t
 
