@@ -1,13 +1,21 @@
 Build Standalone Installer
-===
-tag=v0.0.1
+====
+
 cd $workdir
-wget https://github.com/xiezhen/pkgtools/archive/.zip 
-upzip master
-cd pkgtools-master
+
+wget https://github.com/xiezhen/pkgtools/archive/<tag>.tar.gz
+
+tar zxvf <tag>
+
+cd pkgtools-<tag>
+
 ./buildinstaller.sh
-lumiconda.run -p <install_prefix>
 
 Build Installer in rpm
-==
+====
 
+
+
+Run Standalone Installer
+====
+./lumiconda.run -p <install_prefix>
