@@ -115,7 +115,7 @@ fi
 echo "creating default lumi environment..."
 CONDA_INSTALL="$PREFIX/pkgs/__condapkg__/lib/python2.7/site-packages/conda/install.py"
 $PYTHON $CONDA_INSTALL --prefix=$PREFIX --pkgs-dir=$PREFIX/pkgs --link-all || exit 1
-/bin/rm -rf $PREFIX/pkgs
+#/bin/rm -rf $PREFIX/pkgs
 echo "installation finished."
 
 if [[ $PYTHONPATH != "" ]]; then

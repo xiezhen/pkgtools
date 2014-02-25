@@ -24,7 +24,7 @@ do
 done
 cd ..
 tar cvf pkgs.tar pkgs 
-cat lumicondaheader.sh pkgs.tar | sed "s/__filenames_anchor__/filenamesStr=\"${filenameStr}\"\\nfilenames=(\$filenamesStr)/" | sed "s/__pythonpkg__/\"${pythonpkg}\"/g" | sed "s/__condapkg__/\"${condapkg}\"/g" > lumiconda.run
+cat lumicondaheader.sh pkgs.tar | sed "s/__filenames_anchor__/filenamesStr=\"${filenameStr}\"\\nfilenames=(\$filenamesStr)/" | sed "s/__pythonpkg__/$pythonpkg/g" | sed "s/__condapkg__/$condapkg/g" > lumiconda.run
 
 chmod a+x lumiconda.run
 echo "lumiconda.run created"
