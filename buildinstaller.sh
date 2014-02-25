@@ -42,6 +42,7 @@ tar cvf pkgs.tar pkgs
 cat lumicondaheader.sh pkgs.tar | sed "s/__filenames_anchor__/filenamesStr=\"${filenamesStr}\"\\nfilenames=(\$filenamesStr)/" | sed "s/__pythonpkg__/$pythonpkg/g" | sed "s/__condapkg__/$condapkg/g" | sed "s/__mypkgs_anchor__/mypkgsStr=\"${mypkgsStr}\"\\nmypkgs=(\$mypkgsStr)/" > lumiconda.run
 
 chmod a+x lumiconda.run
+rm -f pkgs.tar
 echo "lumiconda.run created"
 exit 0
 
