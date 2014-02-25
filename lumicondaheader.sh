@@ -100,6 +100,11 @@ for filename in  "${filenames[@]}"
 do
     extract_dist ${filename}
 done
+__mypkgs_anchor__
+for mypkg in "${mypkgs[@]}"
+do
+    extract_dist ${mypkg}
+done
 
 mkdir $PREFIX/envs
 
