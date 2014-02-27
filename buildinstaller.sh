@@ -5,7 +5,6 @@ ARCH=linux-64
 CONDAREPO=$CONDAREPO_BASE/$ARCH
 MYREPO=$MYREPO_BASE/$ARCH
 SUFFIX=".tar.bz2"
-
 pythonpkg='python-2.7.6-1' 
 condapkg='conda-3.0.6-py27_0'
 
@@ -27,6 +26,23 @@ do
   then
     wget $CONDAREPO/${filename}${SUFFIX}
   fi
+  rm -rf ${filename}
+  bunzip2 -f ${filename}${SUFFIX}
+  tar --delete --file=${filename}.tar lib/libQt*.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libcrypto.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libsqlite3.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libpixman-1.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libfreetype.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libjpeg.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libtiff.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libtiffxx.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libexpat.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libreadline.a  >/dev/null 2>&1
+  tar --delete --file=${filename}.tar share/doc >/dev/null 2>&1
+  tar --delete --file=${filename}.tar share/man >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/python2.7/*/tests >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/python2.7/site-packages/*/tests >/dev/null 2>&1
+  bzip2 -f ${filename}.tar
 done
 
 for mypkg in "${mypkgs[@]}"
@@ -35,10 +51,17 @@ do
   then
     wget $MYREPO/${mypkg}${SUFFIX}
   fi
+  rm -rf ${filename} 
+  bunzip2 ${filename}${SUFFIX}
+  tar --delete --file=${filename}.tar share/doc >/dev/null 2>&1
+  tar --delete --file=${filename}.tar share/man >/dev/null 2>&1
+  bzip2 -f ${filename}.tar
 done
 
 cd ..
+cp dellist.txt pkgs
 tar cvf pkgs.tar pkgs 
+
 cat lumicondaheader.sh pkgs.tar | sed "s/__filenames_anchor__/filenamesStr=\"${filenamesStr}\"\\nfilenames=(\$filenamesStr)/" | sed "s/__pythonpkg__/$pythonpkg/g" | sed "s/__condapkg__/$condapkg/g" | sed "s/__mypkgs_anchor__/mypkgsStr=\"${mypkgsStr}\"\\nmypkgs=(\$mypkgsStr)/" > lumiconda.run
 
 chmod a+x lumiconda.run

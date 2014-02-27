@@ -119,9 +119,48 @@ fi
 
 echo "creating default lumi environment..."
 CONDA_INSTALL="$PREFIX/pkgs/__condapkg__/lib/python2.7/site-packages/conda/install.py"
-$PYTHON $CONDA_INSTALL --prefix=$PREFIX --pkgs-dir=$PREFIX/pkgs --link-all || exit 1
-#/bin/rm -rf $PREFIX/pkgs
+$PYTHON $CONDA_INSTALL --prefix=$PREFIX --pkgs-dir=$PREFIX/pkgs --link-all  >/dev/null 2>&1 || exit 1
 echo "installation finished."
+
+echo "simplify distribution..."
+
+echo "Removing all blacklisted files ..."
+dfile="$PREFIX/pkgs/dellist.txt"
+while read line;do
+  array+=("$line")
+done < $dfile
+
+for ((i=0; i < ${#array[*]}; i++))
+do
+    filenamepat="${array[i]}"
+    find $PREFIX/bin -type f -name "${filenamepat}*" -delete
+    find $PREFIX/lib -type f -name "${filenamepat}*" -delete
+    if [ -d $PREFIX/root ]; then
+       find $PREFIX/root -type f -name "${filenamepat}*" -delete
+    fi
+done
+
+#echo "Running unit-tests" #add -v for verbosity
+#$PYTHON -m unittest discover --start-directory $PREFIX/lib/python2.7
+
+echo "Remove all unit test directories" #named 'test' or 'tests' ...
+find $PREFIX/lib/python2.7 -type d -name "tests" -print0 | xargs -0 rm -rf
+
+#echo "Compling .py files"
+#$PYTHON -m compileall -q -f $PREFIX/lib/python2.7
+
+#echo "Removing all the .py files ..."
+#find $PREFIX/lib/python2.7 -type f -name "*.py" -delete
+
+echo "Removing all the .pyo files ..."
+#OR remove all the .pyc files, if you used -O earlier
+#find . -type f -name "*.pyc" -delete
+find $PREFIX/lib/python2.7 -type f -name "*.pyo" -delete
+
+#echo "Removing extra directories"
+rm -rf $PREFIX/pkgs
+echo "Simplify finished, the reduced size of $PREFIX is:"
+du -hs $PREFIX
 
 if [[ $PYTHONPATH != "" ]]; then
     echo "WARNING:
@@ -131,10 +170,6 @@ if [[ $PYTHONPATH != "" ]]; then
     directories of packages that are compatible with the Python interpreter
     in Miniconda: $PREFIX"
 fi
-echo "###turn on environment, run:"
-echo "source $PREFIX/bin/activate $PREFIX"
-echo "###turn off environment, run:"
-echo "source deactivate"
 exit 0
 
 __ARCHIVE_BELOW__
