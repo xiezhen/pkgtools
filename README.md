@@ -9,7 +9,7 @@ tar zxvf $tag
 
 cd pkgtools-$tag
 
-./buildinstaller.sh
+./gen_xxx_installer.sh
 ```
 
 #### Build Installer in rpm
@@ -20,12 +20,12 @@ wget https://github.com/xiezhen/pkgtools/archive/$tag.tar.gz
 tar zxvf $tag
 
 %build
-./buildinstaller.sh
+./gen_xxx_installer.sh
 
 %install
-$RPM_BUILD_ROOT/lumiconda.run -p %{_prefix}
+$RPM_BUILD_ROOT/xxx.run -p %{_prefix}
 ```
 
 #### Run Standalone Installer
 
-./lumiconda.run -p $install_prefix
+./xxx.run -p $install_prefix
