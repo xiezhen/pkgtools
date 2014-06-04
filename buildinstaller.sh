@@ -51,11 +51,11 @@ do
   then
     wget $MYREPO/${mypkg}${SUFFIX}
   fi
-  rm -rf ${filename} 
-  bunzip2 ${filename}${SUFFIX}
-  tar --delete --file=${filename}.tar share/doc >/dev/null 2>&1
-  tar --delete --file=${filename}.tar share/man >/dev/null 2>&1
-  bzip2 -f ${filename}.tar
+  rm -rf ${mypkg} 
+  bunzip2 ${mypkg}${SUFFIX}
+  tar --delete --file=${mypkg}.tar share/doc >/dev/null 2>&1
+  tar --delete --file=${mypkg}.tar share/man >/dev/null 2>&1
+  bzip2 -f ${mypkg}.tar
 done
 
 cd ..

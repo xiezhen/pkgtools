@@ -9,7 +9,7 @@ cd ${CONDADIR}
 source ${CONDADIR}/bin/activate ${CONDADIR}
 
 LUMICONDA_RECEIPE="https://github.com/xiezhen/lumiconda-receipes.git"
-LUMICONDA_RECEIPE_TAG="v0.0.5"
+LUMICONDA_RECEIPE_TAG="v0.6"
 git clone ${LUMICONDA_RECEIPE}
 git checkout $LUMICONDA_RECEIPE_TAG
 cd "lumiconda-receipes"
