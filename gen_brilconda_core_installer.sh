@@ -57,6 +57,7 @@ do
   tar --delete --file=${mypkg}.tar share/doc >/dev/null 2>&1
   tar --delete --file=${mypkg}.tar share/man >/dev/null 2>&1
   tar --delete --file=${mypkg}.tar include/xercesc >/dev/null 2>&1
+  tar --delete --file=${mypkg}.tar lib/libxerces-c.so >/dev/null 2>&1 
   bzip2 -f ${mypkg}.tar
 done
 
