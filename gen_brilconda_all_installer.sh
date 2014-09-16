@@ -8,7 +8,7 @@ SUFFIX=".tar.bz2"
 pythonpkg='python-2.7.6-1' 
 condapkg='conda-3.0.6-py27_0'
 
-filenames=($pythonpkg $condapkg 'openssl-1.0.1c-0' 'pyyaml-3.10-py27_0' 'readline-6.2-2' 'sqlite-3.7.13-0' 'system-5.8-1' 'yaml-0.1.4-0' 'zlib-1.2.7-0' 'dateutil-2.1-py27_2' 'numpy-1.7.1-py27_2' 'pandas-0.13.0-np17py27_0' 'pytz-2013b-py27_0'  'six-1.5.2-py27_0' 'hdf5-1.8.9-1' 'h5py-2.2.1-np17py27_0' 'conda-build-1.2.0-py27_0' )
+filenames=($pythonpkg $condapkg 'openssl-1.0.1c-0' 'pycosat-0.6.0-py27_0' 'pyyaml-3.10-py27_0' 'readline-6.2-2' 'sqlite-3.7.13-0' 'system-5.8-1' 'tk-8.5.13-0' 'yaml-0.1.4-0' 'zlib-1.2.7-0' 'dateutil-2.1-py27_2' 'numpy-1.7.1-py27_2' 'pandas-0.13.0-np17py27_0' 'pytz-2013b-py27_0' 'qt-4.8.5-0' 'freetype-2.4.10-0' 'libpng-1.5.13-1' 'pixman-0.26.2-0' 'cairo-1.12.2-2' 'matplotlib-1.3.0-np17py27_0' 'py2cairo-1.10.0-py27_1' 'pyside-1.2.1-py27_0' 'pyparsing-1.5.6-py27_0' 'shiboken-1.2.1-py27_0' 'six-1.5.2-py27_0' 'jpeg-8d-0' 'libtiff-4.0.2-0' 'hdf5-1.8.9-1' 'h5py-2.2.1-np17py27_0' 'conda-build-1.2.0-py27_0' 'scipy-0.13.2-np17py27_2' 'pcre-8.31-0')
 
 filenamesStr=$( printf "%s " ${filenames[@]} | sed -e 's/ *$//g')
 
@@ -28,7 +28,16 @@ do
   fi
   rm -rf ${filename}
   bunzip2 -f ${filename}${SUFFIX}
+  tar --delete --file=${filename}.tar lib/libQt*.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libcrypto.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libsqlite3.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libpixman-1.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libfreetype.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libjpeg.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libtiff.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libtiffxx.a >/dev/null 2>&1
   tar --delete --file=${filename}.tar lib/libexpat.a >/dev/null 2>&1
+  tar --delete --file=${filename}.tar lib/libreadline.a  >/dev/null 2>&1
   tar --delete --file=${filename}.tar share/doc >/dev/null 2>&1
   tar --delete --file=${filename}.tar share/man >/dev/null 2>&1
   tar --delete --file=${filename}.tar lib/python2.7/*/tests >/dev/null 2>&1
