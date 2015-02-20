@@ -12,7 +12,7 @@ if (( $? )); then
 fi
 
 THIS_DIR=$(pwd)
-INSTALLER=false
+INSTALLER=
 PREFIX=$HOME/brilconda
 
 #Parse command line flags
@@ -43,8 +43,8 @@ Install brilconda via network
 done
 
 shift $(($OPTIND - 1))
-
-if ! $INSTALLER; then
+echo $INSTALLER
+if [ -z "$INSTALLER" ]; then
     echo "-t INSTALLER is required" >&2
     exit 1
 fi
