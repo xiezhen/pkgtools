@@ -97,6 +97,7 @@ extract_dist()
 }
 
 __filenames_anchor__
+filenames=($filenamesStr)
 for filename in "${filenames[@]}"
 do
     extract_dist ${filename}
