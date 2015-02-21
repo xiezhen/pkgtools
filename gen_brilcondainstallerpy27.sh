@@ -71,7 +71,7 @@ conda_pkg=""
 for p in "${pkgdirs[@]}"; do
     cp -rf ${p} .
     xbase=${p##*/}
-    if [[ ${xbase} == python* ]]; then
+    if [[ ${xbase} == python-* ]]; then
 	python_pkg="${xbase}"
     fi
     if [[ ${xbase} == conda-[[:digit:]]* ]]; then
@@ -96,7 +96,7 @@ installername="Brilconda-${VERSION}-${OS}-${PATFORM}.sh"
 cd ${THIS_DIR}
 tar cvf pkgs.tar pkgs 
 
-cat brilcondaheaderpy27.sh pkgs.tar | sed "s/__filenames_anchor__/filenamesStr=\"${filenamesStr}\"\\nfilenames=(\$filenamesStr)/" | sed "s/__version_anchor__/${VERSION}/g" | sed "s/__python_pkg_anchor__/${python_pkg}/g" | sed "s/__conda_pkg_anchor__/${conda_pkg}/g" > $installername
+cat brilcondaheaderpy27.sh pkgs.tar | LC_ALL=C sed "s/__filenames_anchor__/filenamesStr=\"${filenamesStr}\"/g" | LC_ALL=C sed "s/__version_anchor__/${VERSION}/g" | LC_ALL=C sed "s/__python_pkg_anchor__/${python_pkg}/g" | LC_ALL=C sed "s/__conda_pkg_anchor__/${conda_pkg}/g" > $installername
 chmod a+x ${installername}
 echo "${installername} created" 
 
