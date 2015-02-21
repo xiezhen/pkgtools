@@ -5,6 +5,7 @@ driverpkgs["ipython-notebook"]="2.4.1"
 driverpkgs["pandas"]="0.15.2"
 driverpkgs["pytables"]="3.1.1"
 driverpkgs["matplotlib"]="1.4.0"
+driverpkgs["sqlalchemy"]="0.9.8"
 
 echo "$0" | grep '\.sh$' >/dev/null
 if (( $? )); then
