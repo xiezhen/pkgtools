@@ -1,31 +1,17 @@
+#### Installation from network
+```
+download Miniconda
+git clone https://github.com/xiezhen/pkgtools.git
+cd pkgtools
+./bootstrap_brilcondapy27.sh -t ../Miniconda-3.8.3-MacOSX-x86_64.sh -p install/brilconda
+```
 #### Build Standalone Installer
 
 ```
-cd $workdir
-
-wget https://github.com/xiezhen/pkgtools/archive/$tag.tar.gz
-
-tar zxvf $tag
-
-cd pkgtools-$tag
-
-./gen_xxx_installer.sh
-```
-
-#### Build Installer in rpm
-
-```
-%prep
-wget https://github.com/xiezhen/pkgtools/archive/$tag.tar.gz
-tar zxvf $tag
-
-%build
-./gen_xxx_installer.sh
-
-%install
-$RPM_BUILD_ROOT/xxx.run -p %{_prefix}
+cd pkgtools
+./gen_xxx_installer.sh -v $VERSION -p install/brilconda 
 ```
 
 #### Run Standalone Installer
-
-./xxx.run -p $install_prefix
+fetch Brilconda installer Brilconda-xxxx.sh
+$path/Brilconda-xxxx.sh -p $install_prefix
