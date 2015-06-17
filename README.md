@@ -1,15 +1,17 @@
 #### Installation from network
 ```
-download Miniconda
+download Miniconda from from http://repo.continuum.io/miniconda/
 git clone https://github.com/xiezhen/pkgtools.git
 cd pkgtools
+modify bootstrap_brilcondapy27.sh driverpkgs, CONDAINSTALLER,
 ./bootstrap_brilcondapy27.sh -t ../Miniconda-3.8.3-MacOSX-x86_64.sh -p install/brilconda
 ```
 #### Build Standalone Installer
 
 ```
 cd pkgtools
-./gen_xxx_installer.sh -v $VERSION -p install/brilconda 
+modify gen_brilcondainstallerpy27.sh edit python_pkg, conda_pkg
+./gen_brilcondainstallerpy27.sh -v $VERSION -p install/brilconda 
 ```
 
 #### Run Standalone Installer

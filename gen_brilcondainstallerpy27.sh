@@ -66,19 +66,19 @@ mkdir -p pkgs
 declare -a filenames=()
 filenamesStr=""
 cd pkgs
-python_pkg=""
-conda_pkg=""
+python_pkg="python-2.7.10-0"
+conda_pkg="conda-3.10.1-py27_0"
 for p in "${pkgdirs[@]}"; do
-    cp -rf ${p} .
+    cp -rf ../${p} .
     xbase=${p##*/}
-    if [[ ${xbase} == python-* ]]; then
-	python_pkg="${xbase}"
-    fi
-    if [[ ${xbase} == conda-[[:digit:]]* ]]; then
-	if [ -f "${p}.tar.bz2" ];then
-	    conda_pkg=${xbase}
-	fi       
-    fi
+    #if [[ ${xbase} == python-* ]]; then
+    #	python_pkg="${xbase}"
+    #fi
+    #if [[ ${xbase} == conda-[[:digit:]]* ]]; then
+    # 	if [ -f "${p}.tar.bz2" ];then
+    #	    conda_pkg=${xbase}
+    #	fi       
+    #fi
     xfilename=${xbase}.tar.bz2
     tar -cjf ${xfilename} -C . ${xbase}
     #xfilename=${xbase%.*}
