@@ -1,25 +1,25 @@
 #!/bin/bash
 declare -A driverpkgs
 driverpkgs["cx_oracle"]="5.1.2"
-driverpkgs["ipython"]="3.1.0"
-driverpkgs["pandas"]="0.16.2"
-driverpkgs["pytables"]="3.1.1"
-driverpkgs["h5py"]="2.5.0"
-driverpkgs["matplotlib"]="1.4.3"
-driverpkgs["scipy"]="0.15.1"
-driverpkgs["sqlalchemy"]="1.0.5"
-driverpkgs["zeromq"]="4.0.5"
-driverpkgs["libtiff"]="4.0.2"
-driverpkgs["xz"]="5.0.5"
-driverpkgs["jpeg"]="8d"
+driverpkgs["ipython"]="5.1.0"
+driverpkgs["pandas"]="0.19.0"
+driverpkgs["pytables"]="3.2.3.1"
+driverpkgs["h5py"]="2.6.0"
+driverpkgs["matplotlib"]="1.5.3"
+driverpkgs["scipy"]="0.18.1"
+driverpkgs["sqlalchemy"]="1.1.2"
+driverpkgs["zeromq"]="4.1.5"
+#driverpkgs["libtiff"]="4.0.6"
 driverpkgs["docopt"]="0.6.2"
 driverpkgs["prettytable"]="0.7.2"
 driverpkgs["schema"]="0.3.1"
+driverpkgs["frontier_client"]="2.8.19"
+driverpkgs["sqlalchemy_frontier"]="0.2"
 
 ARCH="$(uname 2>/dev/null)"
-if [ "$ARCH" == "Linux" ];then  
-    driverpkgs["root"]="5.99.05"
-fi
+#if [ "$ARCH" == "Linux" ];then  
+#    driverpkgs["root"]="5.99.05"
+#fi
 
 echo "$0" | grep '\.sh$' >/dev/null
 if (( $? )); then
@@ -28,7 +28,7 @@ if (( $? )); then
 fi
 
 THIS_DIR=$(pwd)
-CONDAINSTALLER="Miniconda-3.10.1-Linux-x86_64.sh"
+CONDAINSTALLER="Miniconda2-4.1.11-Linux-x86_64.sh"
 PREFIX=$HOME/brilconda
 
 #Parse command line flags
