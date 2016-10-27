@@ -1,23 +1,36 @@
-#### Installation from network
+#### Download miniconda
 ```
-download Miniconda from from http://repo.continuum.io/miniconda/
-git clone https://github.com/xiezhen/pkgtools.git
-cd pkgtools
-modify bootstrap_brilcondapy27.sh driverpkgs, CONDAINSTALLER,
-./bootstrap_brilcondapy27.sh -t ../Miniconda-3.8.3-MacOSX-x86_64.sh -p install/brilconda
+    http://repo.continuum.io/miniconda/
 ```
-#### Build Standalone Installer
+
+#### Install miniconda and constructor
+```
+    git clone https://github.com/xiezhen/pkgtools.git
+    cd pkgtools
+    ~/Download/Miniconda2-xxx.sh -b -f -p ./miniconda
+    ./miniconda/bin/conda install constructor -y
 
 ```
-cd pkgtools
-modify gen_brilcondainstallerpy27.sh edit python_pkg, conda_pkg
-./gen_brilcondainstallerpy27.sh -v $VERSION -p install/brilconda 
+
+#### (Optional) check the private packages against the python version in miniconda, rebuild/upload packages if needed
+```
+    Rebuild package use lumiconda-receipes
+```
+
+#### Run constructor against current construct.yaml to build the installer
+```
+    ./miniconda/bin/constructor .
 ```
 
 #### Run Standalone Installer
-fetch Brilconda installer Brilconda-xxxx.sh
-$path/Brilconda-xxxx.sh -p $install_prefix
+```
+    bash Brilcondaxxx.sh -b -f -p /install/prefix
+```
 
+#### Remove miniconda
+```
+    rm -rf ./miniconda
+```
 #### How to upgrade Bash in Mac OSX
 bootstrap script requires bash v4x
 ```

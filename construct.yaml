@@ -1,0 +1,42 @@
+name: Brilconda
+
+version: 1.1.0
+
+channels:
+  - http://repo.continuum.io/pkgs/free/
+  - https://conda.binstar.org/zhenxieit
+  
+specs:
+  - python 2.7*
+  - conda
+  - conda-env
+  - setuptools
+  - sqlite
+  - openssl
+  - zlib
+  - pip
+  - pycrypto
+  - pycosat
+  - yaml
+  - pyyaml
+  - ruamel_yaml
+  - wheel
+  - readline
+  - requests
+  - tk
+  - wheel
+  - pandas
+  - matplotlib
+  - scipy
+  - cx_oracle
+  - pytables
+  - h5py
+  - sqlalchemy
+  - zeromq
+  - docopt
+  - prettytable
+  - schema
+  - frontier_client
+  - sqlalchemy_frontier
+  - ipython
+
