@@ -7,7 +7,7 @@
 ```
     git clone https://github.com/xiezhen/pkgtools.git
     cd pkgtools
-    ~/Download/Miniconda2-xxx.sh -b -f -p ./miniconda
+    ~/Downloads/Miniconda2-xxx.sh -b -f -p ./miniconda
     ./miniconda/bin/conda install constructor -y
 
 ```
