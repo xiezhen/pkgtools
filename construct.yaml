@@ -1,6 +1,6 @@
 name: Brilconda
 
-version: 1.1.4
+version: 1.1.5
 
 channels: &id1
   - http://repo.continuum.io/pkgs/free/
@@ -39,6 +39,7 @@ specs:
   - docopt
   - prettytable
   - schema
+  - pacparser
   - frontier_client
   - sqlalchemy_frontier
   - ipython
