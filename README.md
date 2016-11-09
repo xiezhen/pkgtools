@@ -9,8 +9,8 @@
     cd pkgtools
     ~/Downloads/Miniconda2-4.1.11-*.sh -b  -p ./miniconda
     ./miniconda/bin/conda install constructor=1.5.0 -y --no-deps
-    ./miniconda/bin/conda install enum34=1.1.6 --no-deps --no-deps
-    ./miniconda/bin/conda install libconda=4.0.0  --no-deps --no-deps
+    ./miniconda/bin/conda install enum34=1.1.6 --no-deps -y
+    ./miniconda/bin/conda install libconda=4.0.0  --no-deps -y
 
 ```
 
