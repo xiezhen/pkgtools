@@ -26,7 +26,7 @@
 
 #### Run Standalone Installer
 ```
-    bash Brilcondaxxx.sh -b -f -p /install/prefix
+    bash Brilcondaxxx.sh -b -p /install/prefix
 ```
 
 #### Remove miniconda
