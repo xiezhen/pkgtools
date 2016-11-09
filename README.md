@@ -7,8 +7,10 @@
 ```
     git clone https://github.com/xiezhen/pkgtools.git
     cd pkgtools
-    ~/Downloads/Miniconda2-xxx.sh -b -f -p ./miniconda
-    ./miniconda/bin/conda install constructor -y
+    ~/Downloads/Miniconda2-4.1.11-*.sh -b  -p ./miniconda
+    ./miniconda/bin/conda install constructor=1.5.0 -y --no-deps
+    ./miniconda/bin/conda install enum34=1.1.6 --no-deps --no-deps
+    ./miniconda/bin/conda install libconda=4.0.0  --no-deps --no-deps
 
 ```
 
