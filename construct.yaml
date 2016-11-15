@@ -1,12 +1,13 @@
 name: Brilconda
 
-version: 1.1.6
+version: 1.1.7
 
 channels: &id1
   - http://repo.continuum.io/pkgs/free/
   - https://conda.anaconda.org/zhenxieit
   - https://conda.anaconda.org/jsandhu
   - https://conda.anaconda.org/conda-forge
+  - https://conda.anaconda.org/nlesc
  
 specs:
   - python 2.7.12
@@ -56,5 +57,5 @@ specs:
   - expat 2.2.0
   - pacparser 1.3.1
   - ca-certificates 2016.9.26
-  
+  - root 5.99.05
 conda_default_channels: *id1
