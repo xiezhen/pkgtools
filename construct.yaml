@@ -58,5 +58,6 @@ specs:
   - ca-certificates 2016.9.26
   - pcre 8.39
   - jpeg 9b
-  - libtiff 4.0.6 
+  - libtiff 4.0.6
+  - pysocks 1.5.7
 conda_default_channels: *id1
