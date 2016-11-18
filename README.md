@@ -45,3 +45,9 @@ click on your account Advanced Options... and change Login shee option to
 Robbot computer
 if needed: sudo rm /bin/bash; ln -s /usr/local/bin/bash /bin/bash
 ```
+#### lxplus
+On lxplus, root should be installed with conda. It cannot be built in the
+installer. 
+```
+conda install -c zhenxieit root
+```
