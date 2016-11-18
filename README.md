@@ -49,5 +49,5 @@ if needed: sudo rm /bin/bash; ln -s /usr/local/bin/bash /bin/bash
 On lxplus, root should be installed with conda. It cannot be built in the
 installer. 
 ```
-conda install -c zhenxieit root
+conda install -c zhenxieit root --no-deps
 ```
