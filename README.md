@@ -51,3 +51,8 @@ installer.
 ```
 conda install -c zhenxieit root --no-deps
 ```
+restrict lumipro user to readonly to brilconda tree
+```
+cd $brilcondadir
+find . -type d -exec fs setacl {} lumipro rl \; -print
+```
