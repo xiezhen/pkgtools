@@ -56,3 +56,7 @@ restrict lumipro user to readonly to brilconda tree
 cd $brilcondadir
 find . -type d -exec fs setacl {} lumipro rl \; -print
 ```
+#### rpm for linux
+The rpm is relocatable, root previledge is required
+sudo rpm -i --prefix=/opt /Brilconda-1.1.7-1.x86_64.rpm 
+sudo rpm -e Brilconda-1.1.7-1.x86_64

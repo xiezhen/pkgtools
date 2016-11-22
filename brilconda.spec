@@ -18,18 +18,20 @@ Prefix: %{_prefix}
 anaconda virtual environment for BRIL
 
 %install
-mkdir -p %{_builddir}/%{_prefix}
-cp %{source_dir}/%{installer} %{_builddir}/%{_prefix}/%{installer}
+mkdir -p $RPM_BUILD_ROOT/%{_prefix}
+cp %{_sourcedir}/%{installer} $RPM_BUILD_ROOT/%{_prefix}/%{installer}
 
 %files
 %defattr(-,root,root,-)
 %{_prefix}/%{installer}
 
 %post
-echo $RPM_INSTALL_PREFIX
 rm -rf $RPM_INSTALL_PREFIX/brilconda
 bash $RPM_INSTALL_PREFIX/%{installer} -p  $RPM_INSTALL_PREFIX//brilconda
 rm -f $RPM_INSTALL_PREFIX/%{installer}
+
+%postun
+rm -rf $RPM_INSTALL_PREFIX/brilconda
 
 %doc
 
